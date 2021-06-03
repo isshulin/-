@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>图片/4d37ae624483dcec7caa7.jpg</file>
+        <file>图片/kenan.jpg</file>
+        <file>图片/knan1.jpeg</file>
+        <file>图片/res.qrc</file>
+        <file>图片/src=http___cdn.duitang.com_uploads_item_201409_08_20140908130732_kVXzh.jpeg&amp;refer=http___cdn.duitang.jpg</file>
+        <file>图片/开始按钮.png</file>
+        <file>图片/未命名图片.png</file>
+        <file>图片/src=http___cdn.duitang.com_uploads_item_201408_23_20140823055947_8fX48.png&amp;refer=http___cdn.duitang.jpg</file>
+        <file>图片/start.png</file>
+    </qresource>
+</RCC>
