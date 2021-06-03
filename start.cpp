@@ -10,13 +10,6 @@ Start::Start(QWidget *parent)
     setWindowTitle("制式转换");
     QPushButton *btn=new QPushButton(this);
 
-//    label.setParent(this);
-//    label.move(300,400);
-//    label.setStyleSheet("font:bold 32px");
-//    label.setFixedSize(550,100);
-//    QTimer *timer = new QTimer(this);
-//    connect(timer,SIGNAL(timeout()),this,SLOT(timerUpdate()));
-//    timer->start(1000);
 
     sec=new Second;
     QPixmap pix("://图片/start.png");
@@ -46,9 +39,3 @@ Start::~Start()
 {
 
 }
-//void Start::timerUpdate(void)
-//{
-//    QDateTime time = QDateTime::currentDateTime();
-//    QString str = time.toString("yyyy-MM-dd hh:mm:ss dddd");
-//    this->label.setText(str);
-//}
