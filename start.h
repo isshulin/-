@@ -17,7 +17,7 @@ public:
     void paintEvent(QPaintEvent *);
     QLabel label;
 public slots:
-
+    void timerUpdate(void);
 };
 
 #endif // START_H
