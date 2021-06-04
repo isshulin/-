@@ -943,8 +943,6 @@
    <zorder>comboBox_9</zorder>
    <zorder>lineEdit_1</zorder>
    <zorder>lineEdit_2</zorder>
-   <zorder>horizontalSpacer_9</zorder>
-   <zorder>horizontalSpacer_10</zorder>
    <zorder>equal5</zorder>
   </widget>
   <widget class="QWidget" name="widget_11" native="true">
@@ -1062,6 +1060,31 @@
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>842</x>
+     <y>90</y>
+     <width>141</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial Black</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color：rgb（255，0，0）;
+QPushButton{background-color:lightblue;}</string>
+   </property>
+   <property name="text">
+    <string>BACK</string>
    </property>
   </widget>
  </widget>

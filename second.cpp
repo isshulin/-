@@ -2,6 +2,10 @@
 #include "ui_second.h"
 #include<QPainter>
 #include<QPushButton>
+void Second::backtomain(){
+    emit backmain();
+}
+
 Second::Second(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Second)
@@ -14,6 +18,9 @@ Second::Second(QWidget *parent) :
     button->setText("NEXT");
     button->setGeometry(950,850,100,70);
     button->setStyleSheet("QPushButton{background-color:lightblue;}");
+    button->setFont(QFont("Arial black",16));
+
+    connect(ui->pushButton,&QPushButton::clicked,this,&Second::backtomain);
     connect(button,&QPushButton::clicked,[=](){
         this->hide();
         thir->show();

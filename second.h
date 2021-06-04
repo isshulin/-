@@ -3,6 +3,7 @@
 #include<QPushButton>
 #include <QWidget>
 #include<third.h>
+
 namespace Ui {
 class Second;
 }
@@ -18,7 +19,10 @@ public:
     QPushButton * button;
     void paintEvent(QPaintEvent *);
 
+signals:
+    void backmain();
 private slots:
+    void backtomain();
     void on_equal2_clicked();
     void on_equal1_clicked();
     void on_equal3_clicked();

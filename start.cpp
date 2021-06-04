@@ -32,6 +32,12 @@ Start::Start(QWidget *parent)
         });
 
     });
+    connect(sec,&Second::backmain,[=](){
+            sec->hide();
+            this->show();
+    });
+
+
 }
 void Start::paintEvent(QPaintEvent *){
     QPainter painter(this);

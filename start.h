@@ -6,6 +6,7 @@
 #include<QTimer>
 #include<QDateTime>
 #include<QLabel>
+#include<QMenu>
 class Start : public QWidget
 {
     Q_OBJECT
@@ -16,6 +17,7 @@ public:
     Second *sec=NULL;
     void paintEvent(QPaintEvent *);
     QLabel label;
+//    QMenu *menu;
 public slots:
     void timerUpdate(void);
 };
