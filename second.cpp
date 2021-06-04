@@ -16,10 +16,10 @@ Second::Second(QWidget *parent) :
     setWindowTitle("制式转换");
     button=new QPushButton(this);
     button->setText("NEXT");
-    button->setGeometry(950,850,100,70);
+    button->setGeometry(900,750,100,70);
     button->setStyleSheet("QPushButton{background-color:lightblue;}");
     button->setFont(QFont("Arial black",16));
-
+    ui->pushButton->setStyleSheet("QPushButton{background-color:skyblue;}");
     connect(ui->pushButton,&QPushButton::clicked,this,&Second::backtomain);
     connect(button,&QPushButton::clicked,[=](){
         this->hide();
@@ -74,45 +74,17 @@ Second::Second(QWidget *parent) :
     ui->lineEdit_9->setTextMargins(10,0,0,0);
     ui->lineEdit_10->setTextMargins(10,0,0,0);
 
+    ui->invisible->setShortcut(Qt::Key_Return);
+    connect(ui->invisible,&QPushButton::clicked,[=](){
+        if(ui->lineEdit_9->text()!="")emit ui->equal1->clicked();
+        if(ui->lineEdit_7->text()!="")emit ui->equal2->clicked();
+        if(ui->lineEdit_5->text()!="")emit ui->equal3->clicked();
+        if(ui->lineEdit_3->text()!="")emit ui->equal4->clicked();
+        if(ui->lineEdit_1->text()!="")emit ui->equal5->clicked();
+    });
 }
 
 
-
-Second::~Second()
-{
-    delete ui;
-}
-
-
-void Second::paintEvent(QPaintEvent *){
-    QPainter painter(this);
-    QPixmap pix;
-    pix.load(":/图片/未命名图片.png");
-    painter.drawPixmap(0,0,this->width(),this->height(),pix);
-}
-
-
-//重量转换
-void Second::on_equal2_clicked()
-{
-    QString string=ui->lineEdit_7->text();
-    double num=string.toDouble();//左边框中的数
-    int i=ui->comboBox_3->currentIndex();//左侧下拉框的index
-    int j=ui->comboBox_4->currentIndex();//右侧下拉框的index
-    if(i==j)ui->lineEdit_8->setText(QString::number(num,'f',3));
-    if(i==0){
-        if(j==1)ui->lineEdit_8->setText(QString::number(num*1.1023113 ,'f',3));
-        if(j==2)ui->lineEdit_8->setText(QString::number(num*0.5 ,'f',3));
-    }
-    if(i==1){
-        if(j==0)ui->lineEdit_8->setText(QString::number(num*0.9071847 ,'f',3));
-        if(j==2)ui->lineEdit_8->setText(QString::number(num*0.4535924 ,'f',3));
-    }
-    if(i==2){
-        if(j==1)ui->lineEdit_8->setText(QString::number(num*2.2046226 ,'f',3));
-        if(j==0)ui->lineEdit_8->setText(QString::number(num*2 ,'f',3));
-    }
-}
 //长度转换   0米 1英尺 2千米 3丈
 //1 英尺=0.3048 米		 1 英尺=0.0003048 千米
 //1 千米=3280.839895 英尺	 1 米=3.2808399 英尺
@@ -122,6 +94,7 @@ void Second::on_equal2_clicked()
 void Second::on_equal1_clicked()
 {
     QString string=ui->lineEdit_9->text();
+    if(string=="")return;
     double num=string.toDouble();
     int i=ui->comboBox_1->currentIndex();
     int j=ui->comboBox_2->currentIndex();
@@ -148,6 +121,44 @@ void Second::on_equal1_clicked()
     }
 }
 
+Second::~Second()
+{
+    delete ui;
+}
+
+
+void Second::paintEvent(QPaintEvent *){
+    QPainter painter(this);
+    QPixmap pix;
+    pix.load("://图片/02.JPG");
+    painter.drawPixmap(0,0,2000,950,pix);
+//    painter.drawPixmap(0,0,this->width(),this->height(),pix);
+}
+
+
+//重量转换
+void Second::on_equal2_clicked()
+{
+    QString string=ui->lineEdit_7->text();
+    if(string=="")return;
+    double num=string.toDouble();//左边框中的数
+    int i=ui->comboBox_3->currentIndex();//左侧下拉框的index
+    int j=ui->comboBox_4->currentIndex();//右侧下拉框的index
+    if(i==j)ui->lineEdit_8->setText(QString::number(num,'f',3));
+    if(i==0){
+        if(j==1)ui->lineEdit_8->setText(QString::number(num*1.1023113 ,'f',3));
+        if(j==2)ui->lineEdit_8->setText(QString::number(num*0.5 ,'f',3));
+    }
+    if(i==1){
+        if(j==0)ui->lineEdit_8->setText(QString::number(num*0.9071847 ,'f',3));
+        if(j==2)ui->lineEdit_8->setText(QString::number(num*0.4535924 ,'f',3));
+    }
+    if(i==2){
+        if(j==1)ui->lineEdit_8->setText(QString::number(num*2.2046226 ,'f',3));
+        if(j==0)ui->lineEdit_8->setText(QString::number(num*2 ,'f',3));
+    }
+}
+
 //面积转换  0平方米 1英亩 2公顷 3平方千米
 //1 平方米=0.0002471 英亩    1 平方米=0.0001 公顷  0.000001
 //4046.8564224      0.4046856       0.0040469
@@ -156,6 +167,7 @@ void Second::on_equal1_clicked()
 void Second::on_equal3_clicked()
 {
     QString string=ui->lineEdit_5->text();
+    if(string=="")return;
     double num=string.toDouble();
     int i=ui->comboBox_5->currentIndex();
     int j=ui->comboBox_6->currentIndex();
@@ -190,6 +202,7 @@ void Second::on_equal3_clicked()
 void Second::on_equal4_clicked()
 {
     QString string=ui->lineEdit_3->text();
+    if(string=="")return;
     double num=string.toDouble();
     int i=ui->comboBox_7->currentIndex();
     int j=ui->comboBox_8->currentIndex();
@@ -220,6 +233,7 @@ void Second::on_equal4_clicked()
 void Second::on_equal5_clicked()
 {
     QString string=ui->lineEdit_1->text();
+    if(string=="")return;
     double num=string.toDouble();//左边框中的数
     int i=ui->comboBox_9->currentIndex();//左侧下拉框的index
     int j=ui->comboBox_10->currentIndex();//右侧下拉框的index

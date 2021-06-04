@@ -51,6 +51,13 @@ Third::Third(QWidget *parent) :
     ui->line2->setTextMargins(10,0,0,0);
     ui->line3->setTextMargins(10,0,0,0);
     ui->line4->setTextMargins(10,0,0,0);
+    ui->invisibleEqual->setShortcut(Qt::Key_Return);
+    connect(ui->invisibleEqual,&QPushButton::clicked,[=](){
+        if(ui->line1->text()!="")emit ui->equal1->clicked();
+        if(ui->line3->text()!="")emit ui->equal1_3->clicked();
+        if(ui->lineEdit_5->text()!="")emit ui->equal1_2->clicked();
+
+    });
 
 }
 

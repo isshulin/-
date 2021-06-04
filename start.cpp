@@ -37,21 +37,22 @@ Start::Start(QWidget *parent)
             this->show();
     });
 
-
 }
 void Start::paintEvent(QPaintEvent *){
     QPainter painter(this);
     QPixmap pix;
-    pix.load(":/图片/src=http___cdn.duitang.com_uploads_item_201409_08_20140908130732_kVXzh.jpeg&refer=http___cdn.duitang.jpg");
+    pix.load("://图片/蓝天白云.png");
     painter.drawPixmap(0,0,this->width(),this->height(),pix);
     painter.setFont(QFont("宋体",25,QFont::Bold,true));
     painter.drawText(QRect(350,300,700,500),"制   式  转  换");
 
 }
+
 Start::~Start()
 {
 
 }
+
 void Start::timerUpdate(void)
 {
     QDateTime time = QDateTime::currentDateTime();

@@ -64,7 +64,7 @@
    <property name="font">
     <font>
      <family>Agency FB</family>
-     <pointsize>12</pointsize>
+     <pointsize>18</pointsize>
     </font>
    </property>
    <property name="text">
@@ -84,6 +84,8 @@
     <font>
      <family>Agency FB</family>
      <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <item>
@@ -120,6 +122,8 @@
     <font>
      <family>Agency FB</family>
      <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <item>
@@ -155,7 +159,7 @@
    <property name="font">
     <font>
      <family>Agency FB</family>
-     <pointsize>12</pointsize>
+     <pointsize>18</pointsize>
     </font>
    </property>
    <property name="text">
@@ -173,7 +177,7 @@
    </property>
    <property name="font">
     <font>
-     <family>Agency FB</family>
+     <family>宋体</family>
      <pointsize>12</pointsize>
     </font>
    </property>
@@ -218,6 +222,8 @@
     <font>
      <family>Agency FB</family>
      <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="currentIndex">
@@ -255,7 +261,7 @@
    </property>
    <property name="font">
     <font>
-     <family>Agency FB</family>
+     <family>宋体</family>
      <pointsize>12</pointsize>
     </font>
    </property>
@@ -271,7 +277,7 @@
    </property>
    <property name="font">
     <font>
-     <family>Agency FB</family>
+     <family>宋体</family>
      <pointsize>12</pointsize>
     </font>
    </property>
@@ -287,7 +293,7 @@
    </property>
    <property name="font">
     <font>
-     <family>Agency FB</family>
+     <family>宋体</family>
      <pointsize>12</pointsize>
     </font>
    </property>
@@ -305,6 +311,8 @@
     <font>
      <family>Agency FB</family>
      <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <item>
@@ -361,12 +369,18 @@
      <x>9</x>
      <y>106</y>
      <width>801</width>
-     <height>41</height>
+     <height>47</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QLineEdit" name="lineEdit_5">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <family>Agency FB</family>
@@ -377,6 +391,12 @@
     </item>
     <item>
      <widget class="QComboBox" name="xlk5">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <family>Agency FB</family>
@@ -404,8 +424,8 @@
      <widget class="QPushButton" name="equal1_2">
       <property name="font">
        <font>
-        <family>Agency FB</family>
-        <pointsize>12</pointsize>
+        <family>宋体</family>
+        <pointsize>18</pointsize>
        </font>
       </property>
       <property name="text">
@@ -415,6 +435,12 @@
     </item>
     <item>
      <widget class="QLineEdit" name="lineEdit_6">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <family>Agency FB</family>
@@ -425,6 +451,12 @@
     </item>
     <item>
      <widget class="QComboBox" name="xlk6">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <family>Agency FB</family>
@@ -455,15 +487,39 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>93</width>
-     <height>28</height>
+     <width>101</width>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
    <property name="text">
     <string>上一页</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="invisibleEqual">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>
