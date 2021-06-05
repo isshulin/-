@@ -6,6 +6,14 @@
 void Third::back(){
     emit comeback();
 }
+bool jzpd(QString s,int j){
+
+    for(int i=0;i<s.size();i++){
+        if(j==16&&(s[i]<'0'||(s[i]>'9'&&s[i]<'A')||(s[i]>'Z'&&s[i]<'a')||s[i]>'z'))return 0;
+        if(s[i]<'0'||(s[i].toLatin1()-'0')>(j-1))return 0;
+    }
+    return 1;
+}
 
 Third::Third(QWidget *parent) :
     QWidget(parent),
@@ -22,6 +30,12 @@ Third::Third(QWidget *parent) :
 //0.0589  0.0091  0.006486
     connect(ui->equal1,&QPushButton::clicked,[=](){
         QString string=ui->line1->text();
+        for(int i=0;i<string.size();i++){
+            if(string[i]<'0'||string[i]>'9')
+            {
+                ui->line2->setText("error");return;
+            }
+        }
         double num=string.toDouble();//左边框中的数
         int i=ui->xlk1->currentIndex();//左侧下拉框的index
         int j=ui->xlk2->currentIndex();//右侧下拉框的index
@@ -75,10 +89,70 @@ void Third::paintEvent(QPaintEvent *){
 void Third::on_equal1_3_clicked()
 {
     QString string=ui->line3->text();
+
     int i=ui->xlk3->currentIndex();//左侧下拉框的index
     int j=ui->xlk4->currentIndex();//右侧下拉框的index
     if(i==j)ui->line4->setText(string);
+    if(i==0){
+        if(jzpd(string,2)==0){
+            ui->line4->setText("error");return;
+        }
+        int length=string.size();int sum=0,ji=1,a[length];
+        while(length-1){
+            ji*=2;length--;}
+        for(int i=0;i<string.size();i++){
+            a[i]=string[i].toLatin1()-'0';//将string[i]转换为char类型，qt要注意类型转换
+            a[i]*=ji;
+            ji/=2;
+            sum+=a[i];//sum获取十进制值
+        }
+        if(j==1){
+                string=string.setNum(sum,8);
+                ui->line4->setText(string);
+
+        }
+        if(j==2){
+            string=string.setNum(sum);
+            ui->line4->setText(string);
+        }
+        if(j==3){
+            string=string.setNum(sum,16);
+            string=string.toUpper();//转大写字母输出
+            ui->line4->setText(string);
+        }
+    }
+    if(i==1){
+        if(jzpd(string,8)==0){
+            ui->line4->setText("error");return;
+        }
+        int length=string.size();int sum=0,ji=1,a[length];
+        while(length-1){
+            ji*=8;length--;}
+        for(int i=0;i<string.size();i++){
+            a[i]=string[i].toLatin1()-'0';//将string[i]转换为char类型，qt要注意类型转换
+            a[i]*=ji;
+            ji/=8;
+            sum+=a[i];//sum获取十进制值
+        }
+        if(j==0){
+            string=string.setNum(sum,2);
+            ui->line4->setText(string);
+
+        }
+        if(j==2){
+            string=string.setNum(sum);
+            ui->line4->setText(string);
+        }
+        if(j==3){
+            string=string.setNum(sum,16);
+            string=string.toUpper();//转大写字母输出
+            ui->line4->setText(string);
+        }
+    }
     if(i==2){
+        if(jzpd(string,10)==0){
+            ui->line4->setText("error");return;
+        }
         int num=string.toInt();//获取十进制数
         if(j==0){
             string=string.setNum(num,2);
@@ -93,55 +167,10 @@ void Third::on_equal1_3_clicked()
             ui->line4->setText(string);
         }
     }
-    if(i==0){
-        int length=string.size();int sum=0,ji=1,a[length];
-        while(length-1){
-            ji*=2;length--;}
-        for(int i=0;i<string.size();i++){
-            a[i]=string[i].toLatin1()-'0';//将string[i]转换为char类型，qt要注意类型转换
-            a[i]*=ji;
-            ji/=2;
-            sum+=a[i];//sum获取十进制值
-        }
-        if(j==1){
-            string=string.setNum(sum,8);
-            ui->line4->setText(string);
-        }
-        if(j==2){
-            string=string.setNum(sum);
-            ui->line4->setText(string);
-        }
-        if(j==3){
-            string=string.setNum(sum,16);
-            string=string.toUpper();//转大写字母输出
-            ui->line4->setText(string);
-        }
-    }
-    if(i==1){
-        int length=string.size();int sum=0,ji=1,a[length];
-        while(length-1){
-            ji*=8;length--;}
-        for(int i=0;i<string.size();i++){
-            a[i]=string[i].toLatin1()-'0';//将string[i]转换为char类型，qt要注意类型转换
-            a[i]*=ji;
-            ji/=8;
-            sum+=a[i];//sum获取十进制值
-        }
-        if(j==0){
-            string=string.setNum(sum,2);
-            ui->line4->setText(string);
-        }
-        if(j==2){
-            string=string.setNum(sum);
-            ui->line4->setText(string);
-        }
-        if(j==3){
-            string=string.setNum(sum,16);
-            string=string.toUpper();//转大写字母输出
-            ui->line4->setText(string);
-        }
-    }
     if(i==3){
+        if(jzpd(string,16)==0){
+            ui->line4->setText("error");return;
+        }
         int length=string.size();int sum=0,ji=1,a[length];
         while(length-1){
             ji*=16;length--;}
@@ -170,6 +199,10 @@ void Third::on_equal1_3_clicked()
 void Third::on_equal1_2_clicked()
 {
     QString string=ui->lineEdit_5->text();
+    if(string.size()!=5||string[2]!=':'){
+        ui->lineEdit_6->setText("error");
+        return;
+    }
     int a=(string[0].toLatin1()-'0')*10+(string[1].toLatin1()-'0');
     int b=(string[3].toLatin1()-'0')*10+(string[4].toLatin1()-'0');
     int i=ui->xlk5->currentIndex();//左侧下拉框的index

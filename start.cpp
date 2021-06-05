@@ -2,7 +2,6 @@
 #include<QTimer>
 #include<QPushButton>
 #include<QPixmap>
-
 Start::Start(QWidget *parent)
     : QWidget(parent)
 {
@@ -33,8 +32,9 @@ Start::Start(QWidget *parent)
 
     });
     connect(sec,&Second::backmain,[=](){
-            sec->hide();
-            this->show();
+
+        sec->hide();
+        this->show();
     });
 
 }

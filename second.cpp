@@ -5,6 +5,11 @@
 void Second::backtomain(){
     emit backmain();
 }
+bool pderror(QString s){
+    for(int i=0;i<s.size();i++){
+        if(s[i]>'9'||s[i]<'0')return 0;
+    }return 1;
+}
 
 Second::Second(QWidget *parent) :
     QWidget(parent),
@@ -95,6 +100,11 @@ void Second::on_equal1_clicked()
 {
     QString string=ui->lineEdit_9->text();
     if(string=="")return;
+    if(!pderror(string))
+    {
+        ui->lineEdit_10->setText("error");
+        return;
+    }
     double num=string.toDouble();
     int i=ui->comboBox_1->currentIndex();
     int j=ui->comboBox_2->currentIndex();
@@ -141,6 +151,11 @@ void Second::on_equal2_clicked()
 {
     QString string=ui->lineEdit_7->text();
     if(string=="")return;
+    if(!pderror(string))
+    {
+        ui->lineEdit_8->setText("error");
+        return;
+    }
     double num=string.toDouble();//左边框中的数
     int i=ui->comboBox_3->currentIndex();//左侧下拉框的index
     int j=ui->comboBox_4->currentIndex();//右侧下拉框的index
@@ -168,6 +183,11 @@ void Second::on_equal3_clicked()
 {
     QString string=ui->lineEdit_5->text();
     if(string=="")return;
+    if(!pderror(string))
+    {
+        ui->lineEdit_6->setText("error");
+        return;
+    }
     double num=string.toDouble();
     int i=ui->comboBox_5->currentIndex();
     int j=ui->comboBox_6->currentIndex();
@@ -203,6 +223,11 @@ void Second::on_equal4_clicked()
 {
     QString string=ui->lineEdit_3->text();
     if(string=="")return;
+    if(!pderror(string))
+    {
+        ui->lineEdit_4->setText("error");
+        return;
+    }
     double num=string.toDouble();
     int i=ui->comboBox_7->currentIndex();
     int j=ui->comboBox_8->currentIndex();
@@ -213,7 +238,7 @@ void Second::on_equal4_clicked()
         if(j==3)ui->lineEdit_4->setText(QString::number(num*1000,'f',3));
     }
     if(i==1){
-        if(j==0)ui->lineEdit_4->setText(QString::number(num*0.000001 ,'f',3));
+        if(j==0)ui->lineEdit_4->setText(QString::number(num*0.000001 ,'f',6));
         if(j==2)ui->lineEdit_4->setText(QString::number(num*0.00022 ,'f',3));
         if(j==3)ui->lineEdit_4->setText(QString::number(num*.001,'f',3));
     }
@@ -234,6 +259,11 @@ void Second::on_equal5_clicked()
 {
     QString string=ui->lineEdit_1->text();
     if(string=="")return;
+    if(!pderror(string))
+    {
+        ui->lineEdit_2->setText("error");
+        return;
+    }
     double num=string.toDouble();//左边框中的数
     int i=ui->comboBox_9->currentIndex();//左侧下拉框的index
     int j=ui->comboBox_10->currentIndex();//右侧下拉框的index

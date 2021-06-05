@@ -7,11 +7,13 @@
 #include<QDateTime>
 #include<QLabel>
 #include<QMenu>
+
 class Start : public QWidget
 {
     Q_OBJECT
 
 public:
+
     Start(QWidget *parent = 0);
     ~Start();
     Second *sec=NULL;
